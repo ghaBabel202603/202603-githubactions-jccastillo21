@@ -1,0 +1,24 @@
+name: Deploy Action
+description: Deploy Action 
+inputs:
+  targer-dir: 
+    description: "Target direct"
+    default: "src"    
+
+
+runs:
+  using: composite
+  steps:
+     
+   - name: Build
+     id: build
+     run: |
+        echo "Building using directory ${{inputs.targer-dir}}"
+     shell: bash
+
+   - name: Deploy
+     id: deploy
+     run: |
+        echo "Deploying build artifacts"
+     shell: bash   
+      
